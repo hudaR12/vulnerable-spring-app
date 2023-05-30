@@ -52,7 +52,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/students/edit/{id}")
-	public String editStudentForm(@PathVariable String id, Model model) {
+	public String editStudentForm(@PathVariable Long id, Model model) {
 		model.addAttribute("student", studentService.getStudentById(id));
 
 		return "edit_student";
@@ -64,7 +64,7 @@ public class StudentController {
 			Model model) {
 		
 		// get student from database by id
-		Student existingStudent = studentService.getStudentById(id.toString());
+		Student existingStudent = studentService.getStudentById(id);
 		existingStudent.setId(id);
 		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
