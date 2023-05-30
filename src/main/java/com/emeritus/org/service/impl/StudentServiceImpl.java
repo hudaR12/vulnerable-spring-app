@@ -10,7 +10,6 @@ import com.emeritus.org.repository.StudentRepository;
 import com.emeritus.org.service.StudentService;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -36,19 +35,6 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public Student getStudentById(Long id)  {
-		// String queryStr = "SELECT "+id +", email, first_name as firstName, last_name as lastName FROM students WHERE id = " + id;
-		// Query query = entityManager.createNativeQuery(queryStr);
-		// List results = query.getResultList();
-		// if(results.isEmpty()){
-		// 	System.out.println(results);
-		// }
-		// Object result = results.get(0);
-
-		// Student student = new Student();
-		// student.setId((Long) ((Object[]) result)[0]);
-		// student.setEmail(((Object[]) result)[1].toString());
-		// student.setFirstName(((Object[]) result)[2].toString());
-		// student.setLastName(((Object[]) result)[3].toString());
 		return studentRepository.findById(id).orElse(null);
 
 	}
